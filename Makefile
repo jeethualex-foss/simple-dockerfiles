@@ -35,3 +35,17 @@ build_base_ubuntu:
 .BASE: deploy_base_ubuntu
 deploy_base_ubuntu:
 	docker run --name base-ubuntu -it base:Dockerfile
+
+.BASE: clean
+clean:
+	docker system prune -f
+	docker volume prune -f
+	docker image prune -f
+	docker network prune -f
+	docker builder prune -f
+	docker container prune -f
+	docker system prune --volumes -f
+
+
+
+
