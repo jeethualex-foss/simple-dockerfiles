@@ -12,7 +12,7 @@ COPY . /deployments
 
 WORKDIR /deployments
 
-#RUN curl https://downloads.apache.org/spark/spark-4.1.0/spark-4.1.0-bin-hadoop3.tgz
+#RUN curl https://downloads.apache.org/spark/spark-4.1.0/spark-4.1.0-bin-hadoop3.tgz  -O spark-4.1.0-bin-hadoop3.tgz
 
 RUN tar -xvf spark-4.1.0-bin-hadoop3.tgz
 
