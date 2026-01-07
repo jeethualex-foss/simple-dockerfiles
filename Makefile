@@ -12,6 +12,14 @@ build_spark_master:
 deploy_spark_master:
 	docker run --name spark-master -p 7077:7077 -p 8081:8081 -it spark-master:Dockerfile
 
+.BASE: build_spark_slave
+build_spark_slave:
+	docker build -t "spark-slave:Dockerfile" spark-slave
+
+.BASE: deploy_spark_slave
+deploy_spark_slave:
+	docker run --name spark-slave spark-slave:Dockerfile
+
 .BASE: clean
 clean:
 	docker system prune -f
