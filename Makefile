@@ -12,14 +12,6 @@ build_base_ubuntu_spark:
 deploy_base_ubuntu_spark:
 	docker run --name spark-master -p 7077:7077 -p 8081:8081 -it spark-master:Dockerfile
 
-# .BASE: build_base_rhel_spark
-# build_base_rhel_spark:
-# 	docker build -t "base:Dockerfile" base-rhel-spark
-#
-# .BASE: deploy_base_rhel_spark
-# deploy_base_rhel_spark:
-# 	docker run --name base-rhel-spark -p 7077:7077 -p 8081:8081 -it --privileged base:Dockerfile
-
 .BASE: build_base_rhel
 build_base_rhel:
 	docker build -t "base:Dockerfile" base-rhel
@@ -45,7 +37,3 @@ clean:
 	docker builder prune -f
 	docker container prune -f
 	docker system prune --volumes -f
-
-
-
-
