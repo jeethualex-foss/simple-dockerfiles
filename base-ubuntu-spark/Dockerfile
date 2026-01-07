@@ -1,14 +1,14 @@
-FROM redhat/ubi9:latest
-
-RUN yum -y update && yum -y upgrade
-
-RUN yum install java-17-openjdk -y
-
 #FROM ubuntu:latest
 #
 #RUN apt-get -y update && apt -y upgrade
 #
 #RUN apt-get install default-jdk -y
+
+FROM redhat/ubi9:latest
+
+RUN yum -y update && yum -y upgrade
+
+RUN yum install java-17-openjdk -y
 
 COPY . /deployments
 
