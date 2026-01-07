@@ -5,12 +5,8 @@ RUN apt-get -y update && apt -y upgrade
 RUN apt-get install default-jdk -y
 
 COPY . /deployments
-#COPY ./spark-master.service /etc/systemd/system/spark-master.service
-#COPY ./spark-slave.service.service /etc/systemd/system/spark-slave.service.service
 
 WORKDIR /deployments
-
-#RUN curl https://downloads.apache.org/spark/spark-4.1.0/spark-4.1.0-bin-hadoop3.tgz  -O spark-4.1.0-bin-hadoop3.tgz
 
 RUN tar -xvf spark-4.1.0-bin-hadoop3.tgz
 
@@ -20,9 +16,7 @@ RUN useradd spark
 
 RUN mkdir /opt/spark/logs
 
-#RUN chown -R spark:spark /opt/spark*
-
-RUN chmod -Rf 777 /opt/spark
+RUN chown -R spark:spark /opt/spark*
 
 USER spark
 
