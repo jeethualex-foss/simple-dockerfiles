@@ -6,11 +6,11 @@ default:
 
 .BASE: build_base_ubuntu_spark
 build_base_ubuntu_spark:
-	docker build -t "base:Dockerfile" base-ubuntu-spark
+	docker build -t "spark-master:Dockerfile" base-ubuntu-spark
 
 .BASE: deploy_base_ubuntu_spark
 deploy_base_ubuntu_spark:
-	docker run --name base-ubuntu-spark -p 7077:7077 -p 8081:8081 -it base:Dockerfile
+	docker run --name spark-master -p 7077:7077 -p 8081:8081 -it spark-master:Dockerfile
 
 # .BASE: build_base_rhel_spark
 # build_base_rhel_spark:
